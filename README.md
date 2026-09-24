@@ -26,7 +26,7 @@ The repository uses a small, synthetic municipality-year fixture. It proves the 
 ## Quick start
 
 ```powershell
-python -m unittest discover -s tests -v
+make check
 python -m education_finance_mlops train --data data\municipality_year_fixture.json --registry artifacts\model.json --train-through-year 2023 --evaluation-year 2024 --code-revision local
 python -m education_finance_mlops score --data data\municipality_year_fixture.json --reference-data data\municipality_year_fixture.json --registry artifacts\model.json --output artifacts\review_queue.json
 ```
