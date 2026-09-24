@@ -1,0 +1,6 @@
+[
+  {"municipality_code": "1100015", "year": 2023, "region": "North", "enrollment": 1000, "expenditure_per_student": 5200, "revenue_per_student": 5600},
+  {"municipality_code": "1100023", "year": 2023, "region": "North", "enrollment": 1100, "expenditure_per_student": 5400, "revenue_per_student": 5700},
+  {"municipality_code": "1100015", "year": 2024, "region": "North", "enrollment": 1020, "expenditure_per_student": 5300, "revenue_per_student": 5700},
+  {"municipality_code": "1100023", "year": 2024, "region": "North", "enrollment": 1110, "expenditure_per_student": 9000, "revenue_per_student": 9100}
+]
