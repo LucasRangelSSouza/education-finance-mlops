@@ -1,5 +1,7 @@
 # Education finance MLOps
 
+![Social preview for the Education finance MLOps project](docs/assets/social-preview.png)
+
 A reproducible MLOps reference for municipality-year educational-finance indicator anomaly triage. It trains a transparent peer-group baseline, records dataset, code, and model lineage, checks drift before scoring, and produces a human review queue. It does not rank schools, assess people, allocate resources, or make eligibility, fraud, or policy-quality decisions.
 
 ```mermaid
