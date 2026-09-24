@@ -1,5 +1,7 @@
 # Building a traceable MLOps pipeline for public education-finance indicators
 
+**Versioned reference:** [v0.1.0](https://github.com/LucasRangelSSouza/education-finance-mlops/tree/v0.1.0)
+
 Municipality-year indicators are easy to turn into a score and hard to interpret responsibly. The useful engineering problem is smaller: make a review signal reproducible, show the data and model lineage behind it, and stop scoring when the input changes beyond an agreed boundary.
 
 This reference implementation starts with a synthetic fixture. The fixture contains four municipality-year rows across two years in one region. Training uses 2023 and evaluation uses 2024, so the baseline never learns from the period it evaluates. It calculates the regional mean and population standard deviation of expenditure per student, then flags a later record when its absolute z-score reaches the review threshold.
