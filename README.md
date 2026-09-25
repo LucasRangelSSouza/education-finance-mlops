@@ -70,7 +70,7 @@ Without labels, these are rates and slices, not accuracy.
 
 ## Testing and CI
 
-`make check` runs 14 unit tests covering release verification, time boundaries, determinism, drift blocking (distribution shape, missingness, schema, spread), and the intended-use guard. CI runs them on every push.
+`make check` runs 16 unit tests covering release verification, time boundaries, determinism, drift blocking (distribution shape, missingness, schema, spread), and the intended-use guard. CI runs them on every push.
 
 ## Deployment
 
