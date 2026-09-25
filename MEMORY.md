@@ -2,15 +2,17 @@
 
 ## Current state
 
-The fixture-first local MLOps path is implemented: validate input, build deterministic features, train a time-aware regional baseline, evaluate a later year, write local registry lineage, check drift, and emit a review queue. The latest verified local commands are the README quick-start commands; they pass with the synthetic fixture.
+- v0.2.0 reads the pinned Kaggle release `lucasrangelss/brazil-education-data-lake` version 1 (manifest SHA-256 `44f25960…3506`, 27,830 rows, SIOPE 2019-2023) through `kagglehub` and verifies every file.
+- Model `siope-peer/2`: log of investment per basic-education student / same-year national median; robust z per macro-region x population band; threshold 3.5. Global baseline stored beside it.
+- 2026-09-25 run at commit `6be582d`: 2022 batch scored (96 signals); 2023 batch blocked by MAD spread ratio 1.384 ([run record](docs/evidence/education-release-v1-run-2026-09-25.md)). Two runs byte-identical.
+- 14 unit tests pass locally.
 
 ## Decisions
 
-- The use case is municipality-year indicator anomaly triage only.
-- Scores require human review and never make a decision or finding.
-- The first model uses no PNCP features because procurement values and education expenditure are not interchangeable.
-- The repository contains no Kaggle credential or release downloader. A future reviewed Kaggle dataset replaces the fixture through a pinned manifest contract.
+- Review triage only; the CLI refuses other intended uses ([ADR 0001](docs/adr/0001-review-queue-not-decision-engine.md)).
+- Year-relative feature and MAD spread gate ([ADR 0002](docs/adr/0002-year-relative-feature-and-spread-gate.md)).
+- No PNCP features.
 
-## Next task
+## Next verifiable task
 
-Add a reviewed public education release only after it exists in the companion data-map project. Then implement the resolver and validate the actual source contract before claiming Kaggle-backed execution.
+Find the cause of the 2023 dispersion change before refitting on 2023; then consider enrollment-mix peers once the data release includes Censo aggregates.
