@@ -25,7 +25,26 @@ def main() -> None:
     score_command = commands.choices["score"]
     score_command.add_argument("--reference-data", type=Path, required=True)
     score_command.add_argument("--output", type=Path, required=True)
+    release = commands.add_parser("run-release", help="train, evaluate, register, drift-check, and score from the pinned Kaggle release")
+    release.add_argument("--release-dir", type=Path, help="verified local copy; default downloads the pinned version")
+    release.add_argument("--output", type=Path, default=Path("artifacts/release-v1"))
+    release.add_argument("--train-through-year", type=int, default=2021)
+    release.add_argument("--evaluation-year", type=int, default=2022)
+    release.add_argument("--score-year", type=int, default=2023)
+    release.add_argument("--intended-use", default="review_triage")
     args = parser.parse_args()
+    if args.command == "run-release":
+        from .release import resolve_release
+        from .release_pipeline import run_release_pipeline
+
+        result = run_release_pipeline(
+            resolve_release(args.release_dir), args.output,
+            args.train_through_year, args.evaluation_year, args.score_year, args.intended_use,
+        )
+        print(json.dumps(result, indent=2))
+        if result["status"] == "blocked":
+            raise SystemExit(2)
+        return
     rows = load_rows(args.data)
     if args.command == "train":
         features = build_features(rows)
