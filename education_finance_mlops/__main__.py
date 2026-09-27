@@ -32,13 +32,14 @@ def main() -> None:
     release.add_argument("--evaluation-year", type=int, default=2022)
     release.add_argument("--score-year", type=int, default=2023)
     release.add_argument("--intended-use", default="review_triage")
+    release.add_argument("--dataset-version", type=int, choices=(1, 3), default=1)
     args = parser.parse_args()
     if args.command == "run-release":
-        from .release import resolve_release
+        from .release import EDUCATION_RELEASE_V1, EDUCATION_RELEASE_V3, resolve_release
         from .release_pipeline import run_release_pipeline
 
         result = run_release_pipeline(
-            resolve_release(args.release_dir), args.output,
+            resolve_release(args.release_dir, EDUCATION_RELEASE_V3 if args.dataset_version == 3 else EDUCATION_RELEASE_V1), args.output,
             args.train_through_year, args.evaluation_year, args.score_year, args.intended_use,
         )
         print(json.dumps(result, indent=2))

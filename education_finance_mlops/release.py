@@ -32,6 +32,13 @@ EDUCATION_RELEASE_V1 = PinnedRelease(
     schema_version="1.1",
 )
 
+EDUCATION_RELEASE_V3 = PinnedRelease(
+    slug="lucasrangelss/brazil-education-data-lake",
+    version=3,
+    manifest_sha256="311ffeba83b6ccac3d423703b77acb96e6de5ca7c4a86cc9c82881b719caa86d",
+    schema_version="1.1",
+)
+
 
 class ReleaseVerificationError(ValueError):
     """The local package differs from the approved release."""
