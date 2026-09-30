@@ -88,9 +88,9 @@ Every queue entry carries `human_review_required` and `decision_prohibited`. No 
 
 Run `make reproduce` twice and compare SHA-256 values; at commit `6be582d` the registry and queue files matched the hashes in the run record.
 
-## Article
+## Articles
 
-Article: [Building a traceable MLOps pipeline for public education-finance indicators](https://medium.com/@lucas.rangel_18599/79cc4c7fabad) on Medium (source: [articles/traceable-mlops-for-public-education-finance.md](articles/traceable-mlops-for-public-education-finance.md)), with its [claim-to-evidence map](articles/claim-map.md).
+[Building a traceable MLOps pipeline for public education-finance indicators](articles/traceable-mlops-for-public-education-finance.md), with its [claim-to-evidence map](articles/claim-map.md). Draft; not yet published elsewhere.
 
 ## Roadmap
 
