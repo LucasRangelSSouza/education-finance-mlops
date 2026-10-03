@@ -96,3 +96,9 @@ Run `make reproduce` twice and compare SHA-256 values; at commit `6be582d` the r
 
 - Investigate the 2023 dispersion change before refitting on 2023.
 - Add enrollment-mix peer features once a reviewed Censo Escolar aggregate is in the data release.
+
+<!-- articles:start -->
+## Articles
+
+- [Why your data drift check missed a bad batch](https://lucas.rangeltech.net/articles/f1-data-drift-check-missed-a-bad-batch/)
+<!-- articles:end -->
